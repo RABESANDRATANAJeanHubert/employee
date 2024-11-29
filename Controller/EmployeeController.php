@@ -22,7 +22,6 @@ class EmployeeController
      */
     public function createEmployee(array $data): void
     {
-        var_dump($data);
         if ($this->validateEmployeeData($data)) {
             $success = $this->model->createEmployee($data['empId'], $data['empName'], (int)$data['empNum']);
             
@@ -50,7 +49,7 @@ class EmployeeController
     public function getEmployeeById(string $empId): void
     {   
         $employee_model = new EmployeeModel();
-        $employee = $temployee_model->getEmployeeById($empId);
+        $employee = $employee_model->getEmployeeById($empId);
         if ($employee) {
             $this->sendResponse(true, $employee);
         } else {
